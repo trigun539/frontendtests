@@ -1,0 +1,23 @@
+{
+  "name": "frontendtests",
+  "version": "1.0.0",
+  "description": "Testing the different FrontEnd MVC Frameworks",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Edwin",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "~1.5.0",
+    "connect-mongo": "^0.4.1",
+    "cookie-parser": "~1.0.1",
+    "express": "~4.0.0",
+    "lodash": "~2.4.1",
+    "method-override": "~1.0.0",
+    "mongodb": "^1.4.33",
+    "mongoose": "~3.8.8",
+    "socket.io": "^1.0.6",
+    "socket.io-client": "^1.0.6"
+  }
+}
