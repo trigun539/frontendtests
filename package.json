@@ -17,6 +17,7 @@
     "method-override": "~1.0.0",
     "mongodb": "^1.4.33",
     "mongoose": "~3.8.8",
+    "serve-index": "^1.6.2",
     "socket.io": "^1.0.6",
     "socket.io-client": "^1.0.6"
   }

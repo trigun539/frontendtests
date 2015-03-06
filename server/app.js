@@ -4,14 +4,16 @@
 
 'use strict';
 
-var express = require('express');
-var MongoClient = require('mongodb').MongoClient;
-var bodyParser = require('body-parser');
+var express        = require('express');
+var MongoClient    = require('mongodb').MongoClient;
+var bodyParser     = require('body-parser');
 var methodOverride = require('method-override');
-var cookieParser = require('cookie-parser');
-var app = express();
-var server = require('http').createServer(app);
-var io = require('socket.io')(server);
+var cookieParser   = require('cookie-parser');
+var serveIndex     = require('serve-index');
+var app            = express();
+var server         = require('http').createServer(app);
+var io             = require('socket.io')(server);
+var fs             = require('fs');
 
 /**
  * EXPRESS
@@ -21,6 +23,24 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(methodOverride());
 app.use(cookieParser());
+app.use(express.static(__dirname + '/public'));
+
+// get an instance of router
+var router = express.Router();
+
+// route middleware that will happen on every request
+router.use(function(req, res, next) {
+
+    // log each request to the console
+    console.log(req.method, req.url);
+
+    // continue doing what we were doing and go to the route
+    next(); 
+});
+
+// apply the routes to our application
+app.use('/', router);
+
 
 /**
  * DB calls
